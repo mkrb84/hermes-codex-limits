@@ -4,7 +4,10 @@ import importlib.util
 import unittest
 from pathlib import Path
 
+import yaml
+
 ENTRYPOINT = Path(__file__).parents[1] / "__init__.py"
+MANIFEST = ENTRYPOINT.with_name("plugin.yaml")
 
 
 class PluginEntrypointTests(unittest.TestCase):
@@ -15,6 +18,15 @@ class PluginEntrypointTests(unittest.TestCase):
         spec.loader.exec_module(module)
 
         self.assertIsNone(module.register(object()))
+
+    def test_manifest_is_accepted_by_current_plugin_installer(self):
+        from hermes_cli.plugins_cmd import _SUPPORTED_MANIFEST_VERSION
+
+        manifest = yaml.safe_load(MANIFEST.read_text(encoding="utf-8"))
+        self.assertLessEqual(
+            manifest["manifest_version"],
+            _SUPPORTED_MANIFEST_VERSION,
+        )
 
 
 if __name__ == "__main__":
