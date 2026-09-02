@@ -1,0 +1,18 @@
+manifest_version: 2
+api_version: 1
+name: codex-limits
+version: 0.1.0
+description: "Persistent OpenAI Codex subscription limits in the Hermes Desktop status bar. Read-only, cached, and uses no model tokens."
+author: mkrb84
+kind: standalone
+license: MIT
+homepage: https://github.com/mkrb84/hermes-codex-limits
+tags:
+  - codex
+  - usage
+  - desktop
+  - statusbar
+platforms:
+  - linux
+  - macos
+  - windows

@@ -1,0 +1,7 @@
+{
+  "name": "codex-limits",
+  "label": "Codex Limits",
+  "description": "Read-only OpenAI Codex subscription usage endpoint for the Hermes Desktop status bar plugin",
+  "version": "0.1.0",
+  "api": "plugin_api.py"
+}
